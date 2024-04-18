@@ -1,4 +1,4 @@
-package ecoproser.ecoproser;
+package com.ecoproser.ecoproser;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
