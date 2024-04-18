@@ -16,9 +16,6 @@ public class DetallePedidos {
     @Column(name = "idDetallePedidos", nullable = false, length = 36)
     private String idDetallePedidos;
 
-    @Column(name = "idPaciente", nullable = false, length = 36)
-    private String idPaciente;
-
     @Column(name = "Cantidad", nullable = false, length = 200)
     private String Cantidad;
 
@@ -31,20 +28,23 @@ public class DetallePedidos {
 
     @ManyToOne
     @JoinColumn(name="idProductos")
-    private Productos idProductos;
+    private Productos Productos;
 
     public DetallePedidos() {
     }
 
-    public DetallePedidos(String idDetallePedidos, String idPaciente, String cantidad, String precioUnitario,
-            com.ecoproser.ecoproser.models.Pedidos pedidos, Productos idProductos) {
+   
+
+    public DetallePedidos(String idDetallePedidos, String cantidad, String precioUnitario,
+            com.ecoproser.ecoproser.models.Pedidos pedidos, com.ecoproser.ecoproser.models.Productos productos) {
         this.idDetallePedidos = idDetallePedidos;
-        this.idPaciente = idPaciente;
         Cantidad = cantidad;
         this.precioUnitario = precioUnitario;
         Pedidos = pedidos;
-        this.idProductos = idProductos;
+        Productos = productos;
     }
+
+
 
     public String getIdDetallePedidos() {
         return idDetallePedidos;
@@ -52,14 +52,6 @@ public class DetallePedidos {
 
     public void setIdDetallePedidos(String idDetallePedidos) {
         this.idDetallePedidos = idDetallePedidos;
-    }
-
-    public String getIdPaciente() {
-        return idPaciente;
-    }
-
-    public void setIdPaciente(String idPaciente) {
-        this.idPaciente = idPaciente;
     }
 
     public String getCantidad() {
@@ -86,12 +78,18 @@ public class DetallePedidos {
         Pedidos = pedidos;
     }
 
-    public Productos getIdProductos() {
-        return idProductos;
+
+
+    public Productos getProductos() {
+        return Productos;
     }
 
-    public void setIdProductos(Productos idProductos) {
-        this.idProductos = idProductos;
-    } 
+
+
+    public void setProductos(Productos productos) {
+        Productos = productos;
+    }
+
+
 
 }
