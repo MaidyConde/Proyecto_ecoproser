@@ -17,9 +17,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 
 
-
-
-
 @RequestMapping("/api/v1/Categorias/")
 @RestController
 public class categoriasController {
