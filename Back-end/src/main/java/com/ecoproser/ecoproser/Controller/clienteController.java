@@ -24,7 +24,31 @@ public class clienteController {
 
     @PostMapping("/")
     public ResponseEntity<Object> save (@ModelAttribute("Cliente") Cliente Cliente) {
-        
+        var listaCliente = clienteService.findAll()
+                .stream().filter(cliente -> cliente.getNumeroDocumento()
+                         .equals(Cliente.getNumeroDocumento()));
+        if(listaCliente.count()!=0){
+            return new ResponseEntity<>("El documento ya existe", HttpStatus.BAD_REQUEST);
+        }
+        if (Cliente.getNumeroDocumento().equals("")) {
+            return new ResponseEntity<>("El campo numero documento es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (Cliente.getPrimerNombre().equals("")) { 
+            return new ResponseEntity<>("El campo primer nombre es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (Cliente.getPrimerApellido().equals("")) {
+            return new ResponseEntity<>("El campo primer apellido es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (Cliente.getCorreo().equals("")) {
+            return new ResponseEntity<>("El campo primer correo es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (Cliente.getTelefono().equals("")) {
+            return new ResponseEntity<>("El campo telefono es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+        if (Cliente.getDireccion().equals("")) {
+            return new ResponseEntity<>("El campo direccion es obligatorio", HttpStatus.BAD_REQUEST);
+        }
+
         clienteService.save(Cliente);
         return new ResponseEntity<>(Cliente, HttpStatus.OK);
     }
