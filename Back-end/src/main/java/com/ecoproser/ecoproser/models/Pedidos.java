@@ -28,13 +28,13 @@ public class Pedidos {
 
     @ManyToOne
     @JoinColumn(name="idCliente")
-    private Cliente Cliente;
+    private Usuario Cliente;
 
     public Pedidos() {
     }
 
     public Pedidos(String idPedidos, String estado, String fechaPedido,
-            com.ecoproser.ecoproser.models.Productos productos, com.ecoproser.ecoproser.models.Cliente cliente) {
+            com.ecoproser.ecoproser.models.Productos productos, com.ecoproser.ecoproser.models.Usuario cliente) {
         this.idPedidos = idPedidos;
         Estado = estado;
         this.fechaPedido = fechaPedido;
@@ -74,11 +74,11 @@ public class Pedidos {
         Productos = productos;
     }
 
-    public Cliente getCliente() {
+    public Usuario getCliente() {
         return Cliente;
     }
 
-    public void setCliente(Cliente cliente) {
+    public void setCliente(Usuario cliente) {
         Cliente = cliente;
     }
 

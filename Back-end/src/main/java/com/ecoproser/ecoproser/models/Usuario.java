@@ -6,19 +6,25 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 
-@Entity (name = "Cliente")
-public class Cliente {
+@Entity (name = "Usuario")
+public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.UUID)
-    @Column(name = "idCliente", nullable = false, length = 36)
-    private String idCliente; 
+    @Column(name = "idUsuario", nullable = false, length = 36)
+    private String idUsuario; 
 
     @Column(name = "tipoDocumento", nullable = false, length = 36)
     private String tipoDocumento; 
 
     @Column(name = "numeroDocumento", nullable = false, length = 36)
     private String numeroDocumento; 
+
+    @Column(name = "Correo", nullable = false, length = 100)
+    private String Correo; 
+
+    @Column(name = "Contraseña", nullable = false, length = 100)
+    private String Contraseña; 
 
     @Column(name = "primerNombre", nullable = false, length = 36)
     private String primerNombre; 
@@ -32,39 +38,37 @@ public class Cliente {
     @Column(name = "segundoApellido", nullable = false, length = 36)
     private String segundoApellido; 
 
-    @Column(name = "Correo", nullable = false, length = 100)
-    private String Correo; 
-
     @Column(name = "Telefono", nullable = false, length = 13)
     private String Telefono; 
 
     @Column(name = "Direccion", nullable = false, length = 100)
     private String Direccion;
 
-    public Cliente() {
+    public Usuario() {
     }
 
-    public Cliente(String idCliente, String tipoDocumento, String numeroDocumento, String primerNombre,
-            String segundoNombre, String primerApellido, String segundoApellido, String correo, String telefono,
+    public Usuario(String idUsuario, String tipoDocumento, String numeroDocumento, String correo, String contraseña,
+            String primerNombre, String segundoNombre, String primerApellido, String segundoApellido, String telefono,
             String direccion) {
-        this.idCliente = idCliente;
+        this.idUsuario = idUsuario;
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;
+        Correo = correo;
+        Contraseña = contraseña;
         this.primerNombre = primerNombre;
         this.segundoNombre = segundoNombre;
         this.primerApellido = primerApellido;
         this.segundoApellido = segundoApellido;
-        Correo = correo;
         Telefono = telefono;
         Direccion = direccion;
     }
 
-    public String getIdCliente() {
-        return idCliente;
+    public String getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setIdCliente(String idCliente) {
-        this.idCliente = idCliente;
+    public void setIdUsuario(String idUsuario) {
+        this.idUsuario = idUsuario;
     }
 
     public String getTipoDocumento() {
@@ -81,6 +85,22 @@ public class Cliente {
 
     public void setNumeroDocumento(String numeroDocumento) {
         this.numeroDocumento = numeroDocumento;
+    }
+
+    public String getCorreo() {
+        return Correo;
+    }
+
+    public void setCorreo(String correo) {
+        Correo = correo;
+    }
+
+    public String getContraseña() {
+        return Contraseña;
+    }
+
+    public void setContraseña(String contraseña) {
+        Contraseña = contraseña;
     }
 
     public String getPrimerNombre() {
@@ -115,14 +135,6 @@ public class Cliente {
         this.segundoApellido = segundoApellido;
     }
 
-    public String getCorreo() {
-        return Correo;
-    }
-
-    public void setCorreo(String correo) {
-        Correo = correo;
-    }
-
     public String getTelefono() {
         return Telefono;
     }
@@ -138,5 +150,13 @@ public class Cliente {
     public void setDireccion(String direccion) {
         Direccion = direccion;
     }
+
+    
+
+  
+   
+    
+
+   
 
 }
